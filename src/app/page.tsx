@@ -1,54 +1,87 @@
 "use client";
 import Image from "next/image";
+
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { GithubIcon, Linkedin, Mail } from "lucide-react";
+
+const skills = [
+  "Python",
+  "C++",
+  "Java",
+  "JavaScript",
+  "React",
+  "Next.js",
+  "Tailwind CSS",
+  "MySQL",
+  "Machine Learning",
+  "Artificial Intelligence",
+  "Git & GitHub",
+  "HTML & CSS",
+];
+
+const projects = [
+  {
+    title: "Heart Disease Prediction",
+    category: "AI / ML",
+    description:
+      "A machine learning project using classification algorithms to predict heart disease.",
+    technologies: ["Python", "Machine Learning", "Random Forest"],
+    color: "blue",
+  },
+  {
+    title: "Online Bookstore",
+    category: "Web App",
+    description:
+      "An online bookstore management system with authentication, products, cart and order management.",
+    technologies: ["PHP", "MySQL", "JavaScript"],
+    color: "purple",
+  },
+  {
+    title: "QuizBuzz",
+    category: "Java",
+    description:
+      "A Java-based quiz application with multiple questions, timer, scoring and feedback features.",
+    technologies: ["Java", "Swing", "OOP"],
+    color: "green",
+  },
+];
 
 export default function Home() {
-   const [darkMode, setDarkMode] = useState(false);
   return (
-    <main
-  className={`min-h-screen transition-colors duration-500 ${
-    darkMode ? "bg-gray-950 text-white" : "bg-gray-100 text-gray-900"
-  }`}
->
+    <main className="min-h-screen bg-white text-gray-900">
 
       {/* ================= NAVBAR ================= */}
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow">
-      <button
-  onClick={() => setDarkMode(!darkMode)}
-  className="ml-4 w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:scale-110 transition"
->
-  {darkMode ? "☀️" : "🌙"}
-</button>
-        <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <nav className="sticky top-0 z-50 border-b bg-white/90 backdrop-blur-md shadow-sm">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
 
-          <h1 className="text-2xl font-bold text-sky-600">
+          <a
+            href="#home"
+            className="text-2xl font-bold text-blue-600"
+          >
             Nusrat Rahe
-          </h1>
+          </a>
 
-          <div className="hidden md:flex gap-7">
-            <a href="#home" className="hover:text-blue-600">
+          <div className="hidden items-center gap-6 text-sm font-medium md:flex">
+            <a href="#home" className="transition hover:text-blue-600">
               Home
             </a>
 
-            <a href="#about" className="hover:text-blue-600">
+            <a href="#about" className="transition hover:text-blue-600">
               About
             </a>
 
-            <a href="#education" className="hover:text-blue-600">
+            <a href="#education" className="transition hover:text-blue-600">
               Education
             </a>
 
-            <a href="#skills" className="hover:text-blue-600">
+            <a href="#skills" className="transition hover:text-blue-600">
               Skills
             </a>
 
-            <a href="#projects" className="hover:text-blue-600">
+            <a href="#projects" className="transition hover:text-blue-600">
               Projects
             </a>
 
-            <a href="#contact" className="hover:text-blue-600">
+            <a href="#contact" className="transition hover:text-blue-600">
               Contact
             </a>
           </div>
@@ -58,155 +91,203 @@ export default function Home() {
 
 
       {/* ================= HERO ================= */}
-      {/* ================= HERO ================= */}
-<section
-  id="home"
-  className="min-h-[90vh] flex items-center justify-center px-6 py-20"
->
-  <div className="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
+      <section
+        id="home"
+        className="flex min-h-[90vh] items-center justify-center px-6 py-20"
+      >
+        <div className="grid w-full max-w-6xl items-center gap-12 md:grid-cols-2">
 
-    {/* Left Side */}
-    <div className="text-center md:text-left">
+          {/* Hero Text */}
+          <div className="text-center md:text-left">
 
-      <p className="text-blue-600 font-semibold text-lg mb-3">
-        Hello, I'm
-      </p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="mb-3 text-lg font-semibold text-blue-600"
+            >
+              Hello, I&apos;m
+            </motion.p>
 
-     <motion.h2
-  initial={{ opacity: 0, y: 30 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8 }}
-  className="text-5xl md:text-6xl font-bold mb-5"
->
-  Nusrat Rahe
-</motion.h2>
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="mb-5 text-5xl font-bold md:text-6xl"
+            >
+              Nusrat Rahe
+            </motion.h1>
 
-      <h3 className="text-2xl md:text-3xl font-semibold text-gray-700 mb-5">
-        CSE Student & Aspiring AI Researcher
-      </h3>
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="mb-5 text-2xl font-semibold text-gray-700 md:text-3xl"
+            >
+              CSE Student &amp; Aspiring AI Researcher
+            </motion.h2>
 
-      <p className="text-gray-500 leading-7 max-w-xl mb-8">
-        I am passionate about Artificial Intelligence, Machine Learning,
-        software development and research. I enjoy learning new technologies
-        and building practical projects.
-      </p>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="mx-auto mb-8 max-w-xl leading-7 text-gray-500 md:mx-0"
+            >
+              I am passionate about Artificial Intelligence, Machine
+              Learning, software development and research. I enjoy learning
+              new technologies and building practical projects.
+            </motion.p>
 
-      {/* Buttons */}
-      <div className="flex gap-4 justify-center md:justify-start">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="flex justify-center gap-4 md:justify-start"
+            >
+              <a
+                href="#projects"
+                className="rounded-lg bg-blue-600 px-7 py-3 font-semibold text-white transition hover:bg-blue-700"
+              >
+                View Projects
+              </a>
 
-        <a
-          href="#projects"
-          className="bg-blue-600 text-white px-7 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
-        >
-          View Projects
-        </a>
+              <a
+                href="#contact"
+                className="rounded-lg border border-blue-600 px-7 py-3 font-semibold text-blue-600 transition hover:bg-blue-600 hover:text-white"
+              >
+                Contact Me
+              </a>
+            </motion.div>
 
-        <a
-          href="#contact"
-          className="border border-blue-600 text-blue-600 px-7 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition"
-        >
-          Contact Me
-        </a>
-
-      </div>
-
-    </div>
+          </div>
 
 
-    {/* Right Side - Profile */}
-    <div className="flex justify-center">
-  <motion.img
-  src="/profile.jpg"
-  alt="Nusrat Rahe"
-  initial={{ opacity: 0, scale: 0.8 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.8, delay: 0.2 }}
-  className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-xl"
-/>
-</div>
+          {/* Profile Image */}
+          <div className="flex justify-center">
 
-  </div>
-</section>
+            <motion.img
+              src="/profile.jpg"
+              alt="Nusrat Rahe"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="h-64 w-64 rounded-full border-8 border-blue-100 object-cover shadow-2xl md:h-80 md:w-80"
+            />
+
+          </div>
+
+        </div>
+      </section>
+
 
       {/* ================= ABOUT ================= */}
       <section
         id="about"
-        className="min-h-screen bg-white flex flex-col items-center justify-center px-6 py-20"
+        className="bg-gray-50 px-6 py-24"
       >
-        <h2 className="text-4xl font-bold mb-8">
-          About Me
-        </h2>
+        <div className="mx-auto max-w-5xl text-center">
 
-        <p className="max-w-3xl text-center text-lg text-gray-600 leading-8">
-          I am a Computer Science and Engineering student with an interest
-          in Artificial Intelligence, Machine Learning and research.
-          I enjoy programming, exploring new technologies and developing
-          practical solutions to real-world problems.
-        </p>
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-6 text-4xl font-bold"
+          >
+            About Me
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mx-auto max-w-3xl leading-8 text-gray-600"
+          >
+            I am a Computer Science and Engineering student with a strong
+            interest in Artificial Intelligence, Machine Learning and
+            research. I am continuously improving my programming skills and
+            exploring modern technologies to build useful and meaningful
+            projects.
+          </motion.p>
+
+        </div>
       </section>
 
 
       {/* ================= EDUCATION ================= */}
       <section
         id="education"
-        className="min-h-screen bg-gray-100 flex flex-col items-center justify-center px-6 py-20"
+        className="px-6 py-24"
       >
-        <h2 className="text-4xl font-bold mb-16">
-          Education
-        </h2>
+        <div className="mx-auto max-w-5xl">
 
-        <div className="relative max-w-3xl w-full">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16 text-center text-4xl font-bold"
+          >
+            Education
+          </motion.h2>
 
-          {/* Vertical Line */}
-          <div className="absolute left-4 top-0 bottom-0 w-1 bg-gray-300"></div>
+          <div className="relative ml-4 border-l-4 border-blue-600 md:ml-20">
 
+            {/* Education 1 */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative mb-12 ml-8"
+            >
 
-          {/* University */}
-          <div className="relative flex items-start mb-12">
+              <div className="absolute -left-[45px] top-1 h-6 w-6 rounded-full border-4 border-white bg-blue-600"></div>
 
-            <div className="w-9 h-9 bg-blue-600 rounded-full border-4 border-white shadow z-10"></div>
-
-            <div className="ml-8 bg-white p-6 rounded-xl shadow w-full">
-              <p className="text-sm text-blue-600 font-semibold">
-                2023 - Present
-              </p>
-
-              <h3 className="text-2xl font-bold mt-2">
-                Bachelor of Science in Computer Science & Engineering
+              <h3 className="text-2xl font-bold">
+                Bachelor of Science in Computer Science &amp; Engineering
               </h3>
 
-              <p className="text-gray-600 mt-2">
+              <p className="mt-2 font-semibold text-blue-600">
                 Metropolitan University
               </p>
 
-              <p className="text-gray-500 mt-3 leading-7">
-                Studying programming, data structures, algorithms,
-                artificial intelligence, machine learning, software
-                engineering and other areas of computer science.
-              </p>
-            </div>
-
-          </div>
-
-
-          {/* HSC */}
-          <div className="relative flex items-start">
-
-            <div className="w-9 h-9 bg-blue-600 rounded-full border-4 border-white shadow z-10"></div>
-
-            <div className="ml-8 bg-white p-6 rounded-xl shadow w-full">
-              <p className="text-sm text-blue-600 font-semibold">
-                Previous Education
+              <p className="mt-2 text-gray-500">
+                2023 - Present
               </p>
 
-              <h3 className="text-2xl font-bold mt-2">
+              <p className="mt-3 leading-7 text-gray-600">
+                Focus areas include Artificial Intelligence, Machine
+                Learning, Software Engineering, Database Systems and
+                Computer Networks.
+              </p>
+
+            </motion.div>
+
+
+            {/* Education 2 */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="relative ml-8"
+            >
+
+              <div className="absolute -left-[45px] top-1 h-6 w-6 rounded-full border-4 border-white bg-blue-600"></div>
+
+              <h3 className="text-2xl font-bold">
                 Higher Secondary Certificate
               </h3>
 
-              <p className="text-gray-600 mt-2">
-                Your College Name
+              <p className="mt-2 font-semibold text-blue-600">
+                Science Background
               </p>
-            </div>
+
+              <p className="mt-3 leading-7 text-gray-600">
+                Completed higher secondary education with a focus on
+                Mathematics, Physics and Computer-related subjects.
+              </p>
+
+            </motion.div>
 
           </div>
 
@@ -217,66 +298,35 @@ export default function Home() {
       {/* ================= SKILLS ================= */}
       <section
         id="skills"
-        className="min-h-screen bg-white flex flex-col items-center justify-center px-6 py-20"
+        className="bg-gray-50 px-6 py-24"
       >
-        <h2 className="text-4xl font-bold mb-10">
-          My Skills
-        </h2>
+        <div className="mx-auto max-w-6xl">
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl w-full">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12 text-center text-4xl font-bold"
+          >
+            Skills
+          </motion.h2>
 
-          <div className="bg-gray-100 p-6 rounded-xl shadow text-center">
-            <h3 className="text-xl font-semibold">
-              C++
-            </h3>
-            <p className="text-gray-500 mt-2">
-              Programming & DSA
-            </p>
-          </div>
+          <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
 
-          <div className="bg-gray-100 p-6 rounded-xl shadow text-center">
-            <h3 className="text-xl font-semibold">
-              Java
-            </h3>
-            <p className="text-gray-500 mt-2">
-              Object-Oriented Programming
-            </p>
-          </div>
+            {skills.map((skill, index) => (
+              <motion.div
+                key={skill}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                whileHover={{ y: -5, scale: 1.03 }}
+                className="rounded-xl bg-white p-5 text-center font-semibold shadow transition hover:shadow-lg"
+              >
+                {skill}
+              </motion.div>
+            ))}
 
-          <div className="bg-gray-100 p-6 rounded-xl shadow text-center">
-            <h3 className="text-xl font-semibold">
-              Python
-            </h3>
-            <p className="text-gray-500 mt-2">
-              AI & Data Analysis
-            </p>
-          </div>
-
-          <div className="bg-gray-100 p-6 rounded-xl shadow text-center">
-            <h3 className="text-xl font-semibold">
-              HTML & CSS
-            </h3>
-            <p className="text-gray-500 mt-2">
-              Web Development
-            </p>
-          </div>
-
-          <div className="bg-gray-100 p-6 rounded-xl shadow text-center">
-            <h3 className="text-xl font-semibold">
-              JavaScript
-            </h3>
-            <p className="text-gray-500 mt-2">
-              Frontend Development
-            </p>
-          </div>
-
-          <div className="bg-gray-100 p-6 rounded-xl shadow text-center">
-            <h3 className="text-xl font-semibold">
-              Next.js
-            </h3>
-            <p className="text-gray-500 mt-2">
-              Modern Web Development
-            </p>
           </div>
 
         </div>
@@ -286,215 +336,252 @@ export default function Home() {
       {/* ================= PROJECTS ================= */}
       <section
         id="projects"
-        className="min-h-screen bg-gray-100 flex flex-col items-center justify-center px-6 py-20"
+        className="px-6 py-24"
       >
-        <h2 className="text-4xl font-bold mb-10">
-          My Projects
-        </h2>
+        <div className="mx-auto max-w-6xl">
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl w-full">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12 text-center text-4xl font-bold"
+          >
+            Projects
+          </motion.h2>
 
-          {/* Project 1 */}
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
-            <h3 className="text-2xl font-semibold mb-3">
-              Online Bookstore
-            </h3>
+          <div className="grid gap-8 md:grid-cols-3">
 
-            <p className="text-gray-600 mb-4 leading-7">
-              A web-based bookstore management system developed
-              using PHP, MySQL, HTML, CSS and JavaScript.
-            </p>
+            {projects.map((project, index) => {
 
-            <span className="text-sm font-medium text-blue-600">
-              PHP • MySQL • JavaScript
-            </span>
-          </div>
+              const colorClasses = {
+                blue: "bg-blue-100 text-blue-600",
+                purple: "bg-purple-100 text-purple-600",
+                green: "bg-green-100 text-green-600",
+              };
 
+              return (
+                <motion.div
+                  key={project.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.15 }}
+                  whileHover={{ y: -8 }}
+                  className="rounded-2xl border bg-white p-6 shadow-lg"
+                >
 
-          {/* Project 2 */}
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
-            <h3 className="text-2xl font-semibold mb-3">
-              QuizBuzz
-            </h3>
+                  <div
+                    className={`mb-5 flex h-40 items-center justify-center rounded-xl ${
+                      colorClasses[
+                        project.color as keyof typeof colorClasses
+                      ]
+                    }`}
+                  >
+                    <span className="text-xl font-bold">
+                      {project.category}
+                    </span>
+                  </div>
 
-            <p className="text-gray-600 mb-4 leading-7">
-              A Java Swing quiz application with multiple-choice
-              questions, timer, login system and result feedback.
-            </p>
+                  <h3 className="mb-3 text-xl font-bold">
+                    {project.title}
+                  </h3>
 
-            <span className="text-sm font-medium text-blue-600">
-              Java • Swing • OOP
-            </span>
-          </div>
+                  <p className="mb-5 text-gray-600">
+                    {project.description}
+                  </p>
 
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((technology) => (
+                      <span
+                        key={technology}
+                        className="rounded-full bg-gray-100 px-3 py-1 text-sm"
+                      >
+                        {technology}
+                      </span>
+                    ))}
+                  </div>
 
-          {/* Project 3 */}
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
-            <h3 className="text-2xl font-semibold mb-3">
-              Fire Fighting Robot
-            </h3>
+                </motion.div>
+              );
+            })}
 
-            <p className="text-gray-600 mb-4 leading-7">
-              An Arduino-based robot designed to detect fire using
-              flame sensors and automatically control a water pump.
-            </p>
-
-            <span className="text-sm font-medium text-blue-600">
-              Arduino • C/C++ • Electronics
-            </span>
           </div>
 
         </div>
       </section>
 
 
-      
-```tsx
-{/* ================= CONTACT ================= */}
-<section
-  id="contact"
-  className="min-h-screen bg-gray-100 flex items-center justify-center px-6 py-20"
->
-  <div className="max-w-6xl w-full grid md:grid-cols-2 gap-16 items-center">
+      {/* ================= CONTACT ================= */}
+      <section
+        id="contact"
+        className="bg-gray-100 px-6 py-24"
+      >
+        <div className="mx-auto grid max-w-6xl items-center gap-16 md:grid-cols-2">
 
-    {/* ================= LEFT SIDE ================= */}
-    <div>
+          {/* Left */}
+          <div>
 
-      <p className="text-blue-600 font-semibold text-lg mb-3">
-        Get In Touch
-      </p>
+            <motion.p
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="mb-3 text-lg font-semibold text-blue-600"
+            >
+              Get In Touch
+            </motion.p>
 
-      <h2 className="text-4xl md:text-5xl font-bold mb-5">
-        Let's Connect
-      </h2>
+            <motion.h2
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="mb-5 text-4xl font-bold md:text-5xl"
+            >
+              Let&apos;s Connect
+            </motion.h2>
 
-      <p className="text-gray-600 leading-7 max-w-md mb-8">
-        I'm always open to discussing new projects, research ideas,
-        collaborations, or interesting opportunities. Feel free to
-        connect with me through the platforms below.
-      </p>
+            <p className="mb-8 max-w-md leading-7 text-gray-600">
+              I&apos;m always open to discussing projects, research ideas,
+              collaborations and new opportunities.
+            </p>
+
+            {/* Social Buttons */}
+            <div className="flex gap-4">
+
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white transition hover:scale-110 hover:bg-blue-700"
+              >
+                <span className="text-lg font-bold">
+                  in
+                </span>
+              </a>
+
+              {/* GitHub */}
+              <a
+                href="https://github.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-900 text-white transition hover:scale-110 hover:bg-gray-800"
+              >
+                <span className="text-sm font-bold">
+                  GH
+                </span>
+              </a>
+
+              {/* Email */}
+              <a
+                href="mailto:your-email@example.com"
+                aria-label="Email"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-red-500 text-white transition hover:scale-110 hover:bg-red-600"
+              >
+                <span className="text-lg">
+                  ✉
+                </span>
+              </a>
+
+            </div>
+
+          </div>
 
 
-      {/* Social Links */}
-<div className="flex gap-4">
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
 
-  {/* LinkedIn */}
-  <a
-    href="https://www.linkedin.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="LinkedIn"
-    className="w-12 h-12 flex items-center justify-center rounded-full bg-blue-600 text-white font-bold text-lg hover:scale-110 transition"
-  >
-    in
-  </a>
+            <form
+              onSubmit={(e) => e.preventDefault()}
+              className="rounded-2xl bg-white p-8 shadow-lg md:p-10"
+            >
 
-  {/* GitHub */}
-  <a
-    href="https://github.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="GitHub"
-    className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-900 text-white font-bold text-sm hover:scale-110 transition"
-  >
-    GH
-  </a>
+              <h3 className="mb-6 text-2xl font-bold">
+                Send Me a Message
+              </h3>
 
-  {/* Email */}
-  <a
-    href="mailto:your-email@example.com"
-    aria-label="Email"
-    className="w-12 h-12 flex items-center justify-center rounded-full bg-red-500 text-white font-bold text-lg hover:scale-110 transition"
-  >
-    @
-  </a>
+              {/* Name */}
+              <div className="mb-5">
+                <label
+                  htmlFor="name"
+                  className="mb-2 block font-semibold"
+                >
+                  Your Name
+                </label>
 
-      </div>
+                <input
+                  id="name"
+                  type="text"
+                  placeholder="Enter your name"
+                  className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
 
-    </div>
+              {/* Email */}
+              <div className="mb-5">
+                <label
+                  htmlFor="email"
+                  className="mb-2 block font-semibold"
+                >
+                  Email Address
+                </label>
 
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="Enter your email"
+                  className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
 
-    {/* ================= RIGHT SIDE ================= */}
-    <div>
+              {/* Message */}
+              <div className="mb-6">
+                <label
+                  htmlFor="message"
+                  className="mb-2 block font-semibold"
+                >
+                  Message
+                </label>
 
-      <form className="bg-white p-8 md:p-10 rounded-2xl shadow-lg w-full">
+                <textarea
+                  id="message"
+                  rows={5}
+                  placeholder="Write your message..."
+                  className="w-full resize-none rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
 
-        <h3 className="text-2xl font-bold mb-6">
-          Send Me a Message
-        </h3>
+              <button
+                type="submit"
+                className="w-full rounded-lg bg-blue-600 py-3 font-semibold text-white transition hover:bg-blue-700"
+              >
+                Send Message
+              </button>
 
+            </form>
 
-        {/* Name */}
-        <div className="mb-5">
-
-          <label className="block font-semibold mb-2">
-            Your Name
-          </label>
-
-          <input
-            type="text"
-            placeholder="Enter your name"
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          />
+          </motion.div>
 
         </div>
-
-
-        {/* Email */}
-        <div className="mb-5">
-
-          <label className="block font-semibold mb-2">
-            Email Address
-          </label>
-
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          />
-
-        </div>
-
-
-        {/* Message */}
-        <div className="mb-6">
-
-          <label className="block font-semibold mb-2">
-            Message
-          </label>
-
-          <textarea
-            rows={5}
-            placeholder="Write your message..."
-            className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-          ></textarea>
-
-        </div>
-
-
-        {/* Submit Button */}
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
-        >
-          Send Message
-        </button>
-
-      </form>
-
-    </div>
-
-  </div>
-</section>
-```
-
+      </section>
 
 
       {/* ================= FOOTER ================= */}
-      <footer className="bg-gray-900 text-white text-center py-6">
-        <p>
+      <footer className="bg-gray-950 px-6 py-8 text-center text-white">
+
+        <p className="text-gray-400">
           © 2026 Nusrat Rahe. All rights reserved.
         </p>
+
+        <p className="mt-2 text-sm text-gray-500">
+          Built with Next.js &amp; Tailwind CSS
+        </p>
+
       </footer>
 
     </main>
